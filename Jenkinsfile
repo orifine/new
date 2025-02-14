@@ -1,6 +1,10 @@
 node {
     def app
 
+    agent {
+        docker { image 'node:22.14.0-alpine3.21' }
+    }
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
