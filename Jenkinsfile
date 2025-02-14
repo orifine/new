@@ -10,9 +10,9 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-    agent {
-        docker { image 'node:22.14.0-alpine3.21' }
-    }
+        agent {
+            docker { image 'node:22.14.0-alpine3.21' }
+        }
 
         app = docker.build("orifinedocker/jenkins-test")
     }
