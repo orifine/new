@@ -1,10 +1,6 @@
 node {
     def app
 
-    agent {
-        docker { image 'node:22.14.0-alpine3.21' }
-    }
-
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -14,6 +10,9 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
+    agent {
+        docker { image 'node:22.14.0-alpine3.21' }
+    }
 
         app = docker.build("orifinedocker/jenkins-test")
     }
